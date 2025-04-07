@@ -16,3 +16,18 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 require('cypress-xpath');
+import 'cypress-real-events/support';
+import 'cypress-mochawesome-reporter/register';
+afterEach(function () {
+    // take screenshot using test title
+    cy.screenshot(this.currentTest.title, { capture: 'runner' });
+  });
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    // Ignore all uncaught exceptions from the app
+    return false;
+  });
+  
+  
+  
+
+
