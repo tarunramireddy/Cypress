@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-04-07T04:41:25.618Z",
-    "end": "2025-04-07T04:41:52.267Z",
-    "duration": 26649,
+    "start": "2025-04-09T23:42:40.287Z",
+    "end": "2025-04-09T23:43:14.501Z",
+    "duration": 34214,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "519d7052-4b82-474f-a7d4-407f11b57276",
+      "uuid": "440d40c6-17b4-4255-ab02-9907109abfbb",
       "title": "",
-      "fullFile": "cypress\\e2e\\o2.cy.js",
-      "file": "cypress\\e2e\\o2.cy.js",
+      "fullFile": "cypress\\e2e\\firstTest.cy.js",
+      "file": "cypress\\e2e\\firstTest.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "5a50b6b3-a60d-404d-b8b9-64020fc85889",
+          "uuid": "ff401a31-16c2-4d09-b31a-4a8f067c6734",
           "title": "Second Test Suite",
           "fullFile": "",
           "file": "",
@@ -35,32 +35,32 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "Second Test",
-              "fullTitle": "Second Test Suite Second Test",
+              "title": "Buy iPhone with custom plan",
+              "fullTitle": "Second Test Suite Buy iPhone with custom plan",
               "timedOut": null,
-              "duration": 17106,
+              "duration": 29229,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
-              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\o2.cy.js\\\\Second Test.png\"\n    ]\n  ]\n}",
-              "code": "cy.visit('http://www.o2.co.uk/');\ncy.xpath(\"//div[@id='onetrust-button-group-parent']/div/button[text()='Accept all cookies']\").should('be.visible').click();\ncy.xpath(\"//button[@aria-label='Close modal']\").should('be.visible').click();\ncy.xpath(\"//a[@href='https://www.o2.co.uk/shop']\").realHover();\ncy.xpath(\"//a[@href='https://www.o2.co.uk/shop/phones' and @data-testid='header']\").should('be.visible').click();\nlet phone = \"iPhone 14 Pro Max\";\ncy.xpath(\"//label[text()=' Search phones ']/following-sibling::input\").type(`${phone}`);\ncy.xpath(`//div[contains(@class,'secondary-search')]/strong[contains(text(),'${phone}')]`).click();\ncy.wait(2000);",
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\firstTest.cy.js\\\\Buy iPhone with custom plan.png\"\n    ]\n  ]\n}",
+              "code": "const phone = \"iPhone 15 Pro Max\";\nconst color = \"Natural Titanium\";\nconst capacity = \"1TB\";\ncy.visit('http://www.o2.co.uk/');\n_HomePage.default.acceptCookies();\n_HomePage.default.hoverShopLink();\n_HomePage.default.clickPhonesLink();\n_ShopPage.default.searchPhone(phone);\ncy.wait(2000); // can be optimized with better waits\n_PhoneDetailsPage.default.verifyPhoneTitle(phone);\n_PhoneDetailsPage.default.selectColor(color);\ncy.wait(2000);\n_PhoneDetailsPage.default.scrollToTitle();\n_PhoneDetailsPage.default.selectCapacity(capacity);\n_PhoneDetailsPage.default.clickCustomizePlan();\n_PhoneDetailsPage.default.chooseFullPayment();\n_PhoneDetailsPage.default.selectUnlimitedData();\n_PhoneDetailsPage.default.confirmPlan();",
               "err": {},
-              "uuid": "d7d48368-f91f-43cf-9d77-5eb724ac2fe2",
-              "parentUUID": "5a50b6b3-a60d-404d-b8b9-64020fc85889",
+              "uuid": "a2d3e72f-8b42-4a32-905e-926837167b13",
+              "parentUUID": "ff401a31-16c2-4d09-b31a-4a8f067c6734",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d7d48368-f91f-43cf-9d77-5eb724ac2fe2"
+            "a2d3e72f-8b42-4a32-905e-926837167b13"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 17106,
+          "duration": 29229,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -94,7 +94,7 @@
     },
     "marge": {
       "options": {
-        "reportDir": "cypress/reports/mochawesome",
+        "reportDir": "cypress\\reports\\mochawesome\\.jsons",
         "overwrite": false,
         "html": false,
         "json": true
