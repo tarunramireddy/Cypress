@@ -1,21 +1,21 @@
 import HomePage from '../support/pages/HomePage';
 import ShopPage from '../support/pages/ShopPage';
 import PhoneDetailsPage from '../support/pages/PhoneDetailsPage';
+import testData from '../fixtures/testData.json';
 
+const { phone, color, capacity } = testData;
+//Just adding iphone into cart by going through the shop page and selecting the phone from the list
 describe('Second Test Suite', () => {
   it('Buy iPhone with custom plan', () => {
-    const phone = "iPhone 15 Pro Max";
-    const color = "Natural Titanium";
-    const capacity = "1TB";
-
-    cy.visit('http://www.o2.co.uk/');
+    const url = Cypress.config('baseUrl');
+    cy.visit(url);
     HomePage.acceptCookies();
     HomePage.hoverShopLink();
     HomePage.clickPhonesLink();
 
     ShopPage.searchPhone(phone);
 
-    cy.wait(2000); // can be optimized with better waits
+    cy.wait(2000);
     PhoneDetailsPage.verifyPhoneTitle(phone);
     PhoneDetailsPage.selectColor(color);
     cy.wait(2000);

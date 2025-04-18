@@ -1,21 +1,25 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  defaultCommandTimeout: 20000, // 10 seconds for all commands
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'Full Test Report',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
+    chromeWebSecurity: false
 
+  },
   e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
-      on('after:run', () => {});
-      return config;
     },
-  },
-
-  reporter: 'cypress-mochawesome-reporter',
-  reporterOptions: {
-    reportDir: 'cypress/reports/mochawesome',
-    overwrite: false,
-    html: false,
-    json: true
+    baseUrl: 'https://o2.co.uk',
+    env: {
+      loginEmail: 'testuser@example.com',
+      loginPassword: 'password123',
+      apiBase: '/api/v1'
+    }
   }
 });
