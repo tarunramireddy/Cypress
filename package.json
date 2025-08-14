@@ -1,7 +1,4 @@
 {
-    "dependencies": {
-        "cypress": "^14.2.1"
-    },
     "name": "firstproject",
     "version": "1.0.0",
     "main": "index.js",
@@ -16,6 +13,7 @@
     "description": "",
     "devDependencies": {
         "chai": "^5.2.0",
+        "cypress": "^14.5.4",
         "cypress-mochawesome-reporter": "^3.8.2",
         "cypress-real-events": "^1.14.0",
         "cypress-xpath": "^2.0.1",
